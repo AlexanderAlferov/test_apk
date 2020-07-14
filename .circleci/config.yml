@@ -14,6 +14,10 @@ jobs:
           command: |
               curl --header "Authorization: token $githubtoken" --header "Accept: application/vnd.github.v3.raw" --remote-name --location "https://api.github.com/repos/machinne/test_key/contents/testcovid"
       - run:
+          name: prepare
+          command: |
+              "circle_pass=$circle_pass" >> ./gradle.properties
+      - run:
           command: chmod +x ./gradlew
       - run:
           command: ./gradlew build
