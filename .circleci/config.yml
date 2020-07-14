@@ -10,6 +10,24 @@ jobs:
     steps:
       - checkout
       - run:
+          name: apk check before
+          command: |
+             FILE=~/app/release/app-release.apk
+             if test -f "$FILE"; then
+                echo "exists"
+             else
+                echo "dont"
+             fi
+      - run:
           command: chmod +x ./gradlew
       - run:
           command: ./gradlew build
+      - run:
+          name: apk check after
+          command: |
+             FILE=~/app/release/app-release.apk
+             if test -f "$FILE"; then
+                echo "exists"
+             else
+                echo "dont"
+             fi
