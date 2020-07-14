@@ -16,7 +16,7 @@ jobs:
       - run:
           name: prepare
           command: |
-              "circle_pass=$circle_pass" >> ./gradle.properties
+              echo "circle_pass=$circle_pass" >> ./gradle.properties
       - run:
           command: chmod +x ./gradlew
       - run:
