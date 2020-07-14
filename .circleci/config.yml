@@ -9,29 +9,25 @@ jobs:
 #         /app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
     steps:
       - checkout
+      - run:
+          name: file check before
+          command: ls -l
 #       - run:
-#           name: apk check before
-#           command: |
-#              FILE=@app/app.iml
-#              if test -f "$FILE"; then
-#                 echo "exists"
-#              else
-#                 echo "dont"
-#              fi
-      - run:
-          command: chmod +x ./gradlew
-      - run:
-          command: ./gradlew build
-      - run:
-          command: |
-            cd ./app/build/outputs/apk/deviceForTesters/release
-            ls -l
+#           command: chmod +x ./gradlew
 #       - run:
-#           name: apk check after
+#           command: ./gradlew build
+      - run:
+          name: curl
+          command: 
+             curl --header 'Authorization: token $githubtoken' \
+             --header 'Accept: application/vnd.github.v3.raw' \
+             --remote-name \
+             --location "https://api.github.com/repos/machinne/test-key/contents/testcovid"
+#       - run:
 #           command: |
-#              FILE=@app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
-#              if test -f "$FILE"; then
-#                 echo "exists"
-#              else
-#                 echo "dont"
-#              fi
+#             cd ./app/build/outputs/apk/deviceForTesters/release
+#             ls -l
+      - run:
+          name: file check after
+          command: ls -l
+            
