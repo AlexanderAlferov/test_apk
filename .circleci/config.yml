@@ -18,10 +18,10 @@ jobs:
              else
                 echo "dont"
              fi
-#       - run:
-#           command: chmod +x ./gradlew
-#       - run:
-#           command: ./gradlew build
+      - run:
+          command: chmod +x ./gradlew
+      - run:
+          command: ./gradlew build
       - run:
           name: apk check after
           command: |
