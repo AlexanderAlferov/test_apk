@@ -9,8 +9,6 @@ jobs:
 #         /app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
     steps:
       - checkout
-      - run:
-           command: ls -l
 #       - run:
 #           name: apk check before
 #           command: |
@@ -20,10 +18,14 @@ jobs:
 #              else
 #                 echo "dont"
 #              fi
-#       - run:
-#           command: chmod +x ./gradlew
-#       - run:
-#           command: ./gradlew build
+      - run:
+          command: chmod +x ./gradlew
+      - run:
+          command: ./gradlew build
+      - run:
+          command: |
+            cd /app/build/outputs/apk/deviceForTesters/release
+            ls -l
 #       - run:
 #           name: apk check after
 #           command: |
