@@ -10,21 +10,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: file check before
-          command: ls -l
-#       - run:
-#           command: chmod +x ./gradlew
-#       - run:
-#           command: ./gradlew build
-      - run:
           name: curl
           command: |
-              curl --header "Authorization: token $githubtoken" --header "Accept: application/vnd.github.v3.raw" --remote-name --location "https://api.github.com/repos/machinne/test-key/contents/testcovid"
-#       - run:
-#           command: |
-#             cd ./app/build/outputs/apk/deviceForTesters/release
-#             ls -l
+              curl --header "Authorization: token $githubtoken" --header "Accept: application/vnd.github.v3.raw" --remote-name --location "https://api.github.com/repos/machinne/test_key/contents/testcovid"
       - run:
-          name: file check after
-          command: ls -l
-            
+          command: chmod +x ./gradlew
+      - run:
+          command: ./gradlew build
+      - run:
+          command: |
+            cd ./app/build/outputs/apk/deviceForTesters/release
+            ls -l
