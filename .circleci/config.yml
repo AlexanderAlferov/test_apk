@@ -12,7 +12,7 @@ jobs:
       - run:
           name: apk check before
           command: |
-             FILE=/app/app.iml
+             FILE=~/app/app.iml
              if test -f "$FILE"; then
                 echo "exists"
              else
