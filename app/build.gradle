@@ -33,9 +33,9 @@ android {
                 signingConfigs {
                     forTesters {
                         storeFile sign_file
-                        storePassword $circle_pass
-                        keyAlias $circle_pass
-                        keyPassword $circle_pass
+                        storePassword "$circle_pass"
+                        keyAlias "$circle_pass"
+                        keyPassword "$circle_pass"
                     }
                 }
                 signingConfig signingConfigs.forTesters
