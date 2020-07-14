@@ -27,17 +27,15 @@ android {
             buildConfigField "String", "BUILD_VARIANT", "\"deviceForTesters\""
             applicationIdSuffix '.dev'
 
-            def propertiesFile = project.rootProject.file('local.properties')
-            if (propertiesFile.exists()) {
-                Properties overridingProperties = new Properties()
-                overridingProperties.load(propertiesFile.newDataInputStream())
+            def sign_file = project.rootProject.file('testcovid')
+            if (sign_file.exists()) {
 
                 signingConfigs {
                     forTesters {
-                        storeFile file(overridingProperties.getProperty('file'))
-                        storePassword overridingProperties.getProperty('pass')
-                        keyAlias overridingProperties.getProperty('pass')
-                        keyPassword overridingProperties.getProperty('pass')
+                        storeFile sign_file
+                        storePassword $circle_pass
+                        keyAlias $circle_pass
+                        keyPassword $circle_pass
                     }
                 }
                 signingConfig signingConfigs.forTesters
