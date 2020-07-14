@@ -6,22 +6,22 @@ orbs:
 jobs:
   build:
     executor: android/android
-        
+#         /app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
     steps:
       - checkout
       - run:
           name: apk check before
           command: |
-             FILE=/app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
+             FILE=/app/app.iml
              if test -f "$FILE"; then
                 echo "exists"
              else
                 echo "dont"
              fi
-      - run:
-          command: chmod +x ./gradlew
-      - run:
-          command: ./gradlew build
+#       - run:
+#           command: chmod +x ./gradlew
+#       - run:
+#           command: ./gradlew build
       - run:
           name: apk check after
           command: |
