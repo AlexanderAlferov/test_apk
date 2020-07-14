@@ -25,3 +25,5 @@ jobs:
           command: |
             cd ./app/build/outputs/apk/deviceForTesters/release
             ls -l
+      - store_artifacts:
+          path: ./app/build/outputs/apk/deviceForTesters/release
