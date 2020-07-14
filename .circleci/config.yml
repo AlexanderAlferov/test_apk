@@ -18,7 +18,8 @@ jobs:
 #           command: ./gradlew build
       - run:
           name: curl
-          command: curl --header "Authorization: token $githubtoken" --header "Accept: application/vnd.github.v3.raw" --remote-name --location "https://api.github.com/repos/machinne/test-key/contents/testcovid"
+          command: |
+              curl --header "Authorization: token $githubtoken" --header "Accept: application/vnd.github.v3.raw" --remote-name --location "https://api.github.com/repos/machinne/test-key/contents/testcovid"
 #       - run:
 #           command: |
 #             cd ./app/build/outputs/apk/deviceForTesters/release
