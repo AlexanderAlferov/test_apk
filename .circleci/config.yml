@@ -8,7 +8,6 @@ jobs:
     executor: android/android
         
     steps:
-      - prepare
       - run:
           command: chmod +x ./gradlew
       - checkout
