@@ -24,7 +24,7 @@ jobs:
           command: ./gradlew build
       - run:
           command: |
-            cd /app/build/outputs/apk/deviceForTesters/release
+            cd ./app/build/outputs/apk/deviceForTesters/release
             ls -l
 #       - run:
 #           name: apk check after
