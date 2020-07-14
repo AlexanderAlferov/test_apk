@@ -12,7 +12,7 @@ jobs:
       - run:
           name: apk check before
           command: |
-             FILE=@/app/app.iml
+             FILE=@app/app.iml
              if test -f "$FILE"; then
                 echo "exists"
              else
@@ -25,7 +25,7 @@ jobs:
       - run:
           name: apk check after
           command: |
-             FILE=@/app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
+             FILE=@app/build/outputs/apk/deviceForTesters/release/app-deviceForTesters-release.apk
              if test -f "$FILE"; then
                 echo "exists"
              else
